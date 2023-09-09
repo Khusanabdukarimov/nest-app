@@ -1,19 +1,19 @@
 type HttpOptions = {
-    port: number;
-}
+	port: number;
+};
 type ApplicationOptions = {
-    http: HttpOptions;
-}
+	http: HttpOptions;
+};
 
 type MongoDBOptions = {
-    user: string;
-    password: string;
-    host: string;
-    port: number;
-    database: string;
-}
+	user: string;
+	password: string;
+	host: string;
+	port: number;
+	database: string;
+};
 
 export type ConfigurationOptions = {
-    application: ApplicationOptions;
-    mongodb: MongoDBOptions;
-}
+	application: ApplicationOptions;
+	mongodb: MongoDBOptions;
+};
