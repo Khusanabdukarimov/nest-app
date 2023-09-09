@@ -1,6 +1,6 @@
 import dotEnv from "dotenv";
+
 import { ConfigurationOptions } from "./configOptions";
-import * as process from "process";
 
 if (process.env.NODE_ENV === "TEST") {
 	dotEnv.config({ path: "../../.env.test" });
