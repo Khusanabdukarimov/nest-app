@@ -36,3 +36,7 @@ lerna-debug.log*
 
 #.md Files
 TASKS.md
+
+# envoriments
+.env
+.env.test
