@@ -1,8 +1,8 @@
 import { UserResponseDto } from "../../../../core/dto/user";
-import { UserEntity } from "../../../../core/entities";
+import { User } from "../../../../core/entities";
 
 export class UserViewService {
-	public getUserView(user: UserEntity): UserResponseDto {
-		return new UserResponseDto().setId(user.id).setName(user.name).build();
+	public getUserView(user: User): UserResponseDto {
+		return new UserResponseDto().setId(user._id).setName(user.name).build();
 	}
 }
