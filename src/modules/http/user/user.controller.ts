@@ -1,20 +1,26 @@
-import { Controller, Post, Body, Inject } from "@nestjs/common";
-import { UserService, UserViewService } from "./service";
+import { Body, Controller, Get, Inject, Param, Post } from "@nestjs/common";
+import { UserService } from "./service";
 import { UserCreateDto, UserResponseDto } from "../../../core/dto/user";
-import { ApiBody, ApiResponse, ApiTags } from "@nestjs/swagger";
+import { ApiBody, ApiParam, ApiProperty, ApiResponse, ApiTags } from "@nestjs/swagger";
 
 @ApiTags("users")
 @Controller("/user")
 export class UserController {
 	@Inject() private userService: UserService;
-	@Inject() private userViewService: UserViewService;
 
 	@ApiBody({ type: UserCreateDto })
 	@ApiResponse({ type: UserResponseDto })
 	@Post("/")
 	create(@Body() payload: UserCreateDto) {
-		const user = this.userService.create(payload);
-
-		return this.userViewService.getUserView(user);
+		return this.userService.create(payload);
+	}
+	@ApiParam({
+		name: "id",
+		type: "string",
+		description: "enter user id",
+	})
+	@Get(":id")
+	getUser(@Param("id") param: string) {
+		return this.userService.getUser(param);
 	}
 }
